@@ -1,5 +1,5 @@
 import { random } from "lodash";
-import { GameObjects, Physics, Scene } from "phaser";
+import { GameObjects, Input, Physics, Scene } from "phaser";
 import { Sound } from "../utils/keys";
 
 const PlayerCfg = {
@@ -11,6 +11,7 @@ const PlayerCfg = {
         x: 0,
         y: 300,
     },
+    movementSpeed: 2,
 };
 
 const BallCfg = {
@@ -34,6 +35,10 @@ export class MainScene extends Scene {
         right: 0,
     };
     private scoreText: GameObjects.Text;
+    private w: Input.Keyboard.Key;
+    private s: Input.Keyboard.Key;
+    private i: Input.Keyboard.Key;
+    private k: Input.Keyboard.Key;
 
     constructor() {
         super({
@@ -51,23 +56,10 @@ export class MainScene extends Scene {
             width - PlayerCfg.offsetFromClosestVerticalWorldBound
         );
 
-        const movementSpeed = 10;
-        this.input.keyboard.on(
-            "keydown-W",
-            () => (this.playerLeft.y -= movementSpeed)
-        );
-        this.input.keyboard.on(
-            "keydown-S",
-            () => (this.playerLeft.y += movementSpeed)
-        );
-        this.input.keyboard.on(
-            "keydown-I",
-            () => (this.playerRight.y -= movementSpeed)
-        );
-        this.input.keyboard.on(
-            "keydown-K",
-            () => (this.playerRight.y += movementSpeed)
-        );
+        this.w = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        this.s = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        this.i = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.I);
+        this.k = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.K);
 
         this.ball = this.physics.add
             .image(width / 2, halfHeight, BallCfg.textureKey)
@@ -126,6 +118,23 @@ export class MainScene extends Scene {
         }
 
         this.scoreText.setText(this.getScoreText());
+
+        this.handleMovements();
+    }
+
+    private handleMovements() {
+        if (this.w.isDown) {
+            this.playerLeft.y -= PlayerCfg.movementSpeed;
+        }
+        if (this.s.isDown) {
+            this.playerLeft.y += PlayerCfg.movementSpeed;
+        }
+        if (this.i.isDown) {
+            this.playerRight.y -= PlayerCfg.movementSpeed;
+        }
+        if (this.k.isDown) {
+            this.playerRight.y += PlayerCfg.movementSpeed;
+        }
     }
 
     private addPlayer(x: number) {
