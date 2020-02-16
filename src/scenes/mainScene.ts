@@ -96,6 +96,17 @@ export class MainScene extends Scene {
             .text(width / 2, ScoreTextCfg.y, "")
             .setOrigin(0.5)
             .setFontSize(24);
+
+        const controlsText = this.add
+            .text(
+                width / 2,
+                this.game.scale.height - 50,
+                "Controls: Left player W and S. Right player I and J"
+            )
+            .setOrigin(0.5);
+        setTimeout(() => {
+            controlsText.destroy();
+        }, 10000);
     }
 
     public update() {
