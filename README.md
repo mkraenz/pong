@@ -1,22 +1,10 @@
-[![Build Status](https://travis-ci.com/proSingularity/fursorger.svg?branch=master)](https://travis-ci.com/proSingularity/fursorger)
-[![codecov](https://codecov.io/gh/proSingularity/fursorger/branch/master/graph/badge.svg)](https://codecov.io/gh/proSingularity/fursorger)
+[![Build Status](https://travis-ci.com/proSingularity/pong.svg?branch=master)](https://travis-ci.com/proSingularity/pong)
 
 # Pong
 
-**Play now at [fursorger-game.herokuapp.com](https://fursorger-game.herokuapp.com).**
+**Play now at [prosingularity.github.io/pong](https://prosingularity.github.io/pong/).**
 
-```
-I am the care taker who
-tries to keep the dying world alive
-as long as possible
-by traveling to cities,
-redistributing goods among cities,
-and building factories to build more goods
-```
-
-[Big Hairy Audacious Goal](https://en.wikipedia.org/wiki/Big_Hairy_Audacious_Goal) Number 1.
-
-A phaser3 survival trading game in TypeScript.
+Arcade retro classic Pong.
 
 ## Getting started
 
@@ -30,7 +18,7 @@ Assumes you have globally installed
 Clone the git repository
 
 ```bash
-git clone https://github.com/proSingularity/fursorger.git
+git clone https://github.com/proSingularity/pong.git
 ```
 
 Install, test and start:
@@ -45,13 +33,6 @@ Perform a quick build (bundle.js) and start server:
 
 ```bash
 npm run dev
-```
-
-### Running with Docker
-
-```bash
-# Assumes local installation of Docker.
-npm run build && docker-compose up
 ```
 
 In your browser, navigate to [localhost:8080](http://localhost:8080).
@@ -69,9 +50,7 @@ npm run dev
 
 ## Deployment
 
-Continuous deployment to github pages [https://prosingularity.github.io/fursorger/](https://prosingularity.github.io/fursorger/) is performed on each push to `master`.
-
-At the same time, a new Docker image is published to [Pong's Docker Hub repository](https://cloud.docker.com/u/nonbiri/repository/docker/nonbiri/fursorger).
+Continuous deployment to github pages [https://prosingularity.github.io/pong/](https://prosingularity.github.io/pong/) is performed on each push to `master`.
 
 See [.travis.yml](.travis.yml).
 
