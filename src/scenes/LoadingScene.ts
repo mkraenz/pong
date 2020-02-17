@@ -2,7 +2,7 @@ import { GameObjects, Scene } from "phaser";
 import { Color, toHex } from "../styles/Color";
 import { setDefaultTextStyle } from "../styles/Text";
 import { Sound } from "../utils/keys";
-import { MainScene } from "./mainScene";
+import { MainScene } from "./MainScene";
 
 export class LoadingScene extends Scene {
     private halfWidth!: number;
